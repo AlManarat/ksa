@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المجد للمملكة العربية السعودية</title>
+    <!-- الخطوط من جوجل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rakkas&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS CSS for Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* التنسيقات الأساسية */
+        .rtl {
+            direction: rtl;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #000;
+        }
+
+        /* تدرج الخلفية لجعلها أقل كآبة */
+        .background-gradient {
+            background: linear-gradient(180deg, #111 0%, #202020 100%);
+        }
+
+        /* خط الرقعة */
+        .amiri-font {
+            font-family: 'Rakkas', serif;
+        }
+
+        /* تأثير التظليل على الفيديو في المقدمة */
+        .hero-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 30%, transparent 60%);
+        }
+
+        /* تنسيق بطاقات المحتوى الفاخرة */
+        .card-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.05); /* لون خلفية شفافة قليلاً */
+        }
+
+        .card-container:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px #FFD700;
+        }
+
+        .card-body {
+            position: relative;
+            z-index: 10;
+        }
+
+        .glow-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #10B981, #FFD700);
+            z-index: -1;
+            filter: blur(8px);
+            opacity: 0.6;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .card-container:hover .glow-border {
+            opacity: 1;
+        }
+
+        /* زر "اكتشف المسيرة" */
+        .btn-primary {
+            background: linear-gradient(90deg, #10B981, #FFD700);
+            color: #1a1a1a;
+            box-shadow: 0 4px 14px rgba(255, 215, 0, 0.6);
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        .btn-primary:hover::after {
+            width: 250%;
+            height: 250%;
+        }
+
+        /* تنسيق جديد لعنوان الصفحة مع تظليل أقل */
+        .main-title {
+            text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 15px #FFD700, 0 0 20px #FFD700;
+            transition: all 0.5s ease-in-out;
+        }
+        
+        .main-title:hover {
+            text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFD700, 0 0 40px #FFD700;
+        }
+    </style>
+</head>
+
+<body class="background-gradient text-white overflow-x-hidden rtl">
+
+    <!-- قسم المقدمة الفاخر -->
+    <header class="relative w-full h-screen flex items-center justify-center text-center">
+        <!-- فيديو في الخلفية -->
+<div class="absolute inset-0 w-full h-full z-0">
+  <iframe class="w-full h-full object-cover"
+    src="https://www.youtube.com/embed/dNI59yQK8B0?autoplay=1&mute=1&loop=1&playlist=dNI59yQK8B0"
+    frameborder="0"
+    allow="autoplay; fullscreen; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<div class="absolute inset-0 bg-black opacity-70 z-10"></div>
+        
+        <!-- المحتوى المركزي (النص والزر) -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center space-y-6 z-20" data-aos="fade-down" data-aos-duration="1500">
+            <h1 class="main-title text-3xl md:text-5xl lg:text-7xl font-bold tracking-wide amiri-font text-white whitespace-nowrap">المجد للمملكة العربية السعودية</h1>
+            <p class="text-lg md:text-2xl font-light text-gray-200" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">فخرٌ وحضارةٌ وتاريخٌ أصيل</p>
+            <a href="#main-content" class="btn btn-primary px-8 py-3 rounded-full" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">اكتشف المسيرة</a>
+        </div>
+
+        <!-- الشعار في الزاوية السفلية اليسرى -->
+        <div class="absolute bottom-8 left-8 z-20" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+            <img src="https://cdn.discordapp.com/attachments/1389204569065783348/1420168718041747487/Untitled8_20250924004352.png?ex=68d46aaf&is=68d3192f&hm=72efa572cd6240cb8527242b4fd16fa6d1319bb114452040e07fffbdb628072a&" alt="شعار المملكة العربية السعودية" class="w-24 h-24 object-contain">
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي للموقع -->
+    <main id="main-content" class="relative z-30 py-20">
+        <!-- قسم قادة المسيرة -->
+        <div class="container mx-auto px-4">
+            <h2 class="amiri-font text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-white mb-16" data-aos="zoom-in" data-aos-duration="1000">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-amber-400">قادة مسيرة المجد والازدهار</span>
+            </h2>
+            <div class="space-y-16">
+
+                <!-- الملك عبدالعزيز بن عبدالرحمن آل سعود -->
+                <div class="card-container p-1 animated" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="glow-border rounded-lg"></div>
+                    <div class="card-body bg-[#172522] rounded-lg p-6 flex flex-col md:flex-row items-center gap-8">
+                        <img src="https://cdn.discordapp.com/attachments/1389204569065783348/1420165760537464944/ei_1758486477312-removebg-preview.png?ex=68d9adee&is=68d85c6e&hm=d818766c827c638d1abaa7b0e001f01cbb1cb3be88f44d00419e78700a1f409c&" alt="صورة الملك عبدالعزيز" class="w-full md:w-1/3 rounded-md object-cover">
+                        <div class="flex-1">
+                            <h3 class="text-2xl md:text-3xl font-bold text-green-400 mb-4">الملك عبدالعزيز بن عبدالرحمن آل سعود</h3>
+                            <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                                مؤسس المملكة العربية السعودية وموحدها. قاد رحلة تاريخية لتوحيد أراضي البلاد، ووضع أسس الدولة الحديثة على مبادئ الدين والعدل، لتبدأ مسيرة البناء والنماء التي تستمر حتى يومنا هذا.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- الملك سعود بن عبدالعزيز آل سعود -->
+                <div class="card-container p-1 animated" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="glow-border rounded-lg"></div>
+                    <div class="card-body bg-[#172522] rounded-lg p-6 flex flex-col md:flex-row items-center gap-8">
+                        <img src="https://cdn.discordapp.com/attachments/1389204569065783348/1420169684795527320/Untitled9_20250924010157.png?ex=68d46b96&is=68d31a16&hm=8fb5c2b06f234ffa0be013f5c2b49a8a9500ad5eecbba87c5203aa9b3c522169&" alt="صورة الملك سعود" class="w-full md:w-1/3 rounded-md object-cover">
+                        <div class="flex-1">
+                            <h3 class="text-2xl md:text-3xl font-bold text-green-400 mb-4">الملك سعود بن عبدالعزيز آل سعود</h3>
+                            <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                                ثاني ملوك المملكة العربية السعودية. شهد عهده توسعة كبيرة في التعليم، حيث تم افتتاح أول جامعة في المملكة (جامعة الملك سعود)، كما ركز على التنمية الاقتصادية والبنية التحتية.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الملك فيصل بن عبدالعزيز آل سعود -->
+                <div class="card-container p-1 animated" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="glow-border rounded-lg"></div>
+                    <div class="card-body bg-[#172522] rounded-lg p-6 flex flex-col md:flex-row items-center gap-8">
+                        <img src="https://cdn.discordapp.com/attachments/1389204569065783348/1420165760151719946/ei_1758486400982-removebg-preview.png?ex=68d467ee&is=68d3166e&hm=4ad689df50ddab1a43df167d017b605fc62b05575239d1abe126ca1b16613dbf&" alt="صورة الملك فيصل" class="w-full md:w-1/3 rounded-md object-cover">
+                        <div class="flex-1">
+                            <h3 class="text-2xl md:text-3xl font-bold text-green-400 mb-4">الملك فيصل بن عبدالعزيز آل سعود</h3>
+                            <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                                يُعرف بلقب "فارس الحكمة". شهد عهده طفرة في مجالات التعليم والتطوير الاقتصادي. كان له دور محوري في القضايا العربية والإسلامية، وحقّق إنجازات كبيرة في تطوير البنية التحتية والتعليم.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الملك خالد بن عبدالعزيز آل سعود -->
+                <div class="card-container p-1 animated" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                    <div class="glow-border rounded-lg"></div>
+                    <div class="card-body bg-[#172522] rounded-lg p-6 flex flex-col md:flex-row items-center gap-8">
+                        <img src="https://cdn.discordapp.com/attachments/1389204569065783348/1420169835907911720/Untitled9_20250924010134.png?ex=68d46bba&is=68d31a3a&hm=a7be52337f0b053273dd528dab85bb1aefc9dc2fc4f70e806945851dba9cd968&" alt="صورة الملك خالد" class="w-full md:w-1/3 rounded-md object-cover">
+                        <div class="flex-1">
+                            <h3 class="text-2xl md:text-3xl font-bold text-green-400 mb-4">الملك خالد بن عبدالعزيز آل سعود</h3>
+                            <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                                تميز عهده بالرخاء الاقتصادي والتنمية الشاملة. ركّز على توسيع البنية التحتية، وإنشاء المستشفيات والجامعات، ودعم المشاريع الزراعية، مما انعكس على مستوى رفاهية المواطنين.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- الملك فهد بن عبدالعزيز آل سعود -->
+                <div class="card-container p-1 animated" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+                    <div class="glow-border rounded-lg"></div>
+                    <div class="card-body bg-[#172522] rounded-lg p-6 flex flex-col md:flex-row items-center gap-8">
+                        <img src="https://cdn.discordapp.com/attachments/1389204569065783348/1420165762160525413/ei_1758486498487-removebg-preview.png?ex=68d467ef&is=68d3166f&hm=dd28b4de2875064a44527eb301db454720a9f00ca6aa3cea06fd826701a2edf3&" alt="صورة الملك فهد" class="w-full md:w-1/3 rounded-md object-cover">
+                        <div class="flex-1">
+                            <h3 class="text-2xl md:text-3xl font-bold text-green-400 mb-4">الملك فهد بن عبدالعزيز آل سعود</h3>
+                            <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                                يُعرف بلقب "خادم الحرمين الشريفين". شهد عهده توسعة تاريخية للحرمين الشريفين في مكة والمدينة، كما قام بإصدار النظام الأساسي للحكم.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الملك عبدالله بن عبدالعزيز آل سعود -->
+                <div class="card-container p-1 animated" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">
+                    <div class="glow-border rounded-lg"></div>
+                    <div class="card-body bg-[#172522] rounded-lg p-6 flex flex-col md:flex-row items-center gap-8">
+                        <img src="https://cdn.discordapp.com/attachments/1389204569065783348/1420165762848653452/ei_1758486512966-removebg-preview.png?ex=68d467ef&is=68d3166f&hm=61d4b42436a1f5daacfa4b96dc92a2d8ae3bfc2f5f0c638bb5183360b00ded0e&" alt="صورة الملك عبدالله" class="w-full md:w-1/3 rounded-md object-cover">
+                        <div class="flex-1">
+                            <h3 class="text-2xl md:text-3xl font-bold text-green-400 mb-4">الملك عبدالله بن عبدالعزيز آل سعود</h3>
+                            <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                                شهدت المملكة في عهده نهضة تعليمية واقتصادية كبيرة. كان من أبرز إنجازاته إطلاق مدينة الملك عبدالله الاقتصادية، وتوسعة الحرمين الشريفين، ودعم برامج الابتعاث للخارج.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الملك سلمان بن عبدالعزيز آل سعود -->
+                <div class="card-container p-1 animated" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1200">
+                    <div class="glow-border rounded-lg"></div>
+                    <div class="card-body bg-[#172522] rounded-lg p-6 flex flex-col md:flex-row items-center gap-8">
+                        <img src="https://cdn.discordapp.com/attachments/1389204569065783348/1420165763343450162/ei_1758486552295-removebg-preview.png?ex=68d467ef&is=68d3166f&hm=cc1e23194f7cfde9541172ca8ffe6d91d612243a8242eb21aa444b1bc337c832&" alt="صورة الملك سلمان" class="w-full md:w-1/3 rounded-md object-cover">
+                        <div class="flex-1">
+                            <h3 class="text-2xl md:text-3xl font-bold text-green-400 mb-4">الملك سلمان بن عبدالعزيز آل سعود</h3>
+                            <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                                مهندس "رؤية 2030" التي أطلقت أكبر تحول اقتصادي واجتماعي في تاريخ المملكة، ووضع البلاد على خارطة المستقبل العالمية. شهد عهده طفرة تنموية في كافة القطاعات.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- سمو ولي العهد الأمير محمد بن سلمان -->
+                <div class="card-container p-1 animated" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1400">
+                    <div class="glow-border rounded-lg"></div>
+                    <div class="card-body bg-[#172522] rounded-lg p-6 flex flex-col md:flex-row items-center gap-8">
+                        <img src="https://cdn.discordapp.com/attachments/1389204569065783348/1420165762559115274/ei_1758486533494-removebg-preview.png?ex=68d467ef&is=68d3166f&hm=78500a91abebdbd31f178681f446a087c2342180c1fe07acdd8a51dba6ead362&" alt="صورة ولي العهد الأمير محمد بن سلمان" class="w-full md:w-1/3 rounded-md object-cover">
+                        <div class="flex-1">
+                            <h3 class="text-2xl md:text-3xl font-bold text-green-400 mb-4">سمو ولي العهد الأمير محمد بن سلمان</h3>
+                            <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                                صاحب الرؤية الطموحة "رؤية 2030" وقائد التحول الوطني. يعمل على تحقيق التنمية المستدامة، ودعم المشاريع العملاقة، وتطوير كافة القطاعات بما يواكب أحدث المعايير العالمية.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- قسم اليوم الوطني السعودي -->
+        <div class="container mx-auto px-4 mt-24">
+            <h2 class="amiri-font text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-white mb-16" data-aos="zoom-in" data-aos-duration="1000">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-amber-400">اليوم الوطني السعودي 95</span>
+            </h2>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-right">
+                <div class="w-full" data-aos="fade-up" data-aos-duration="1000">
+                    <img src="https://cdn.discordapp.com/attachments/1389204569065783348/1420165806293127188/----95.webp?ex=68d9adf9&is=68d85c79&hm=8de471940b3e0819af37d5f75ce5b28a0a8268b4b80499f7e78df3b6f102c96b&" alt="صورة احتفالية باليوم الوطني السعودي 95" class="w-full h-auto rounded-lg mb-8 shadow-2xl">
+                    <p class="text-lg md:text-xl font-light text-gray-200 mt-4 leading-relaxed">
+                        نحتفل اليوم بذكرى عظيمة، يوم توحيد المملكة العربية السعودية على يد مؤسسها الملك عبدالعزيز بن عبدالرحمن آل سعود – رحمه الله – الذي وحد شتات البلاد وأرسى أسس الدولة الحديثة. إنه يوم يجسد الفخر والاعتزاز بتاريخ حافل بالعطاء والبناء، ويمثل فرصة لتجديد الولاء والانتماء لوطننا الغالي.
+                        <br><br>
+                        في اليوم الوطني الـ 95، نستذكر المسيرة التنموية المشرقة التي قطعتها المملكة على مر العقود، حيث تحولت الأحلام إلى إنجازات على أرض الواقع، وتمكنت المملكة من تحقيق قفزات تنموية في مختلف المجالات، من التعليم والاقتصاد إلى الصحة والبنية التحتية، بما يليق بعراقة تاريخها وطموح شعبها.
+                        <br><br>
+                        هذا اليوم يجسد روح الوحدة والولاء والانتماء لكل مواطن سعودي، ويمثل منصة لتجديد العزم والإصرار على بناء مستقبل أكثر إشراقًا، مواكبًا لرؤية المملكة 2030، التي تهدف إلى تحقيق التنمية المستدامة وتمكين الأجيال القادمة.
+                        <br><br>
+                        إن اليوم الوطني ليس مجرد احتفال، بل هو رسالة فخر لكل سعودي وسعودية، تجسيدًا للهوية الوطنية، وإشادة بالإنجازات التي صنعتها الأيادي السعودية المخلصة. فلنحتفل معًا بذكريات الأمس، ولنرسم بأمل وعزيمة مستقبلًا زاهرًا لوطننا الغالي.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- قسم المشاريع العملاقة -->
+        <div class="container mx-auto px-4 mt-24">
+            <h2 class="amiri-font text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-white mb-16" data-aos="zoom-in" data-aos-duration="1000">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-amber-400">مشاريع عملاقة في قلب الرؤية</span>
+            </h2>
+            <div class="space-y-16">
+
+                <!-- مشروع نيوم -->
+                <div class="card-container p-1 animated" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                    <div class="glow-border rounded-lg"></div>
+                    <div class="card-body bg-[#172522] rounded-lg p-6 flex flex-col md:flex-row items-center gap-8">
+                        <img src="https://cdn.discordapp.com/attachments/1389204569065783348/1420165763729330196/Untitled5_20250921233609.png?ex=68d467ef&is=68d3166f&hm=ac678a5fd50f7839fc270f0e01264d0758f65e974ed9e799aa43bf44ce78b04c&" alt="صورة مشروع نيوم" class="w-full md:w-1/3 rounded-md object-cover">
+                        <div class="flex-1">
+                            <h3 class="text-2xl md:text-3xl font-bold text-green-400 mb-4">مشروع نيوم</h3>
+                            <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                                وجهة عالمية للحياة العصرية والمستدامة. يهدف إلى أن يكون مركزاً للابتكار والأعمال، ومدينة خالية من الانبعاثات الكربونية، مع التركيز على التقنية والتصنيع المتقدم.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- مشروع البحر الأحمر -->
+                <div class="card-container p-1 animated" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+                    <div class="glow-border rounded-lg"></div>
+                    <div class="card-body bg-[#172522] rounded-lg p-6 flex flex-col md:flex-row items-center gap-8">
+                        <img src="https://cdn.discordapp.com/attachments/1389204569065783348/1420165806603501689/Cover-Red-Sea-Project--AR.webp?ex=68d9adf9&is=68d85c79&hm=a5427a0c0429d0b13a4e81d034ada82a424dfd4f3dfeb0be0b5a0f8123fc9703&" alt="صورة مشروع البحر الأحمر" class="w-full md:w-1/3 rounded-md object-cover">
+                        <div class="flex-1">
+                            <h3 class="text-2xl md:text-3xl font-bold text-green-400 mb-4">مشروع البحر الأحمر</h3>
+                            <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                                مشروع سياحي فاخر يهدف إلى تطوير منتجعات سياحية فريدة على سواحل البحر الأحمر، مع الحفاظ على البيئة الطبيعية والثروات البحرية.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- مشروع القدية -->
+                <div class="card-container p-1 animated" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">
+                    <div class="glow-border rounded-lg"></div>
+                    <div class="card-body bg-[#172522] rounded-lg p-6 flex flex-col md:flex-row items-center gap-8">
+                        <img src="https://cdn.discordapp.com/attachments/1389204569065783348/1420165805991006228/Qiddiya_Illustration.png?ex=68d9adf9&is=68d85c79&hm=9f3325e768b58b7ac0d29e846438938d435e947c70357a783f267b9ab857d07a&" alt="صورة مشروع القدية" class="w-full md:w-1/3 rounded-md object-cover">
+                        <div class="flex-1">
+                            <h3 class="text-2xl md:text-3xl font-bold text-green-400 mb-4">مشروع القدية</h3>
+                            <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                                عاصمة الترفيه والرياضة والفنون في المملكة. يهدف إلى توفير وجهة ترفيهية متكاملة بمعايير عالمية، تشمل مدن الألعاب والمرافق الرياضية والفعاليات الثقافية.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- مشروع بوابة الدرعية -->
+                <div class="card-container p-1 animated" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1200">
+                    <div class="glow-border rounded-lg"></div>
+                    <div class="card-body bg-[#172522] rounded-lg p-6 flex flex-col md:flex-row items-center gap-8">
+                        <img src="https://cdn.discordapp.com/attachments/1389204569065783348/1420165805504593982/---750x500.webp?ex=68d9adf9&is=68d85c79&hm=29598129045da22e905e1405d61b92b06f07889c21bb00d251a064c01ce1fb23&" alt="صورة مشروع بوابة الدرعية" class="w-full md:w-1/3 rounded-md object-cover">
+                        <div class="flex-1">
+                            <h3 class="text-2xl md:text-3xl font-bold text-green-400 mb-4">مشروع بوابة الدرعية</h3>
+                            <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                                يُعد أحد أكبر مشاريع التراث الثقافي في العالم، ويهدف إلى إحياء عاصمة الدولة السعودية الأولى، وتحويلها إلى وجهة سياحية وثقافية عالمية.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- الذيل (Footer) -->
+    <footer class="py-12 mt-20 bg-[#172522]">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+            <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                <img src="https://cdn.discordapp.com/attachments/1389204569065783348/1420168718041747487/Untitled8_20250924004352.png?ex=68d46aaf&is=68d3192f&hm=72efa572cd6240cb8527242b4fd16fa6d1319bb114452040e07fffbdb628072a&" alt="شعار المملكة العربية السعودية" class="w-12 h-12 object-contain">
+                <div class="flex flex-col">
+                    <p class="amiri-font text-xl md:text-2xl font-semibold text-gray-200" data-aos="fade-up" data-aos-duration="1000">
+                        عمل الطالب: مونس علي محمد عطوي
+                    </p>
+                    <p class="amiri-font text-xl md:text-2xl font-semibold text-gray-200" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        بإشراف: أستاذ محمد الكومي
+                    </p>
+                </div>
+            </div>
+            <p class="text-sm text-gray-500 mt-4 md:mt-0" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                جميع الحقوق محفوظة &copy; 2025.
+            </p>
+        </div>
+    </footer>
+
+    <!-- AOS JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true
+        });
+    </script>
+</body>
+
+</html>
+
